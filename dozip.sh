@@ -29,6 +29,8 @@ fi
 files="
 composer.json
 logo.png
+translations/index.php
+translations/da.php
 vendor/autoload.php
 vendor/composer
 vendor/composer/autoload_classmap.php
