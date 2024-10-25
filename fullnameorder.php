@@ -6,7 +6,7 @@ class FullNameOrder extends Module
     {
         $this->name = 'fullnameorder';
         $this->tab = 'front_office_features';
-        $this->version = '1.0.0';
+        $this->version = '1.0.1';
         $this->author = 'Kjeld Borch Egevang';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
@@ -43,6 +43,7 @@ class FullNameOrder extends Module
         $filters = $sc->getFilters();
         $qb = $params['search_query_builder'];
         $qb->where('TRUE');
+        // Copied code from src/Core/Grid/Query/OrderQueryBuilder.php
         $qb->select()
             ->addSelect($this->getCustomerField() . ' AS `customer`')
             ->addSelect('o.id_order, o.reference, o.total_paid_tax_incl, os.paid, osl.name AS osname')
@@ -66,8 +67,6 @@ class FullNameOrder extends Module
             'customer' => $this->getCustomerField(),
         ];
 
-        $havingLikeComparisonFilters = [];
-
         $dateComparisonFilters = [
             'date_add' => 'o.`date_add`',
         ];
@@ -86,15 +85,6 @@ class FullNameOrder extends Module
                 $alias = $likeComparisonFilters[$filterName];
 
                 $qb->andWhere("$alias LIKE :$filterName");
-                $qb->setParameter($filterName, '%' . $filterValue . '%');
-
-                continue;
-            }
-
-            if (isset($havingLikeComparisonFilters[$filterName])) {
-                $alias = $havingLikeComparisonFilters[$filterName];
-
-                $qb->andHaving("$alias LIKE :$filterName");
                 $qb->setParameter($filterName, '%' . $filterValue . '%');
 
                 continue;

@@ -31,16 +31,6 @@ composer.json
 logo.png
 translations/index.php
 translations/da.php
-vendor/autoload.php
-vendor/composer
-vendor/composer/autoload_classmap.php
-vendor/composer/LICENSE
-vendor/composer/autoload_static.php
-vendor/composer/platform_check.php
-vendor/composer/ClassLoader.php
-vendor/composer/autoload_psr4.php
-vendor/composer/autoload_real.php
-vendor/composer/autoload_namespaces.php
 $module.php
 $extra
 "
