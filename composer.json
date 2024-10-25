@@ -1,0 +1,12 @@
+{
+    "type": "prestashop-module",
+    "require": {
+        "php": ">=7.1"
+
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0"
+    },
+    "minimum-stability": "stable",
+    "license": "MIT"
+}
