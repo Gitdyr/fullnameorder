@@ -10,7 +10,7 @@ class FullNameOrder extends Module
         $this->author = 'Kjeld Borch Egevang';
         $this->need_instance = 0;
         $this->ps_versions_compliancy = [
-            'min' => '1.7',
+            'min' => '1.7.7',
             'max' => _PS_VERSION_
         ];
         $this->bootstrap = true;
